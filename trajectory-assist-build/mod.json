@@ -1,0 +1,67 @@
+{
+	"geode": "4.0.0",
+	"gd": {
+		"win": "2.2074",
+		"android": "2.2074",
+		"mac": "2.2074",
+		"ios": "2.2074"
+	},
+	"id": "yourname.trajectory-assist",
+	"name": "Trajectory Assist",
+	"version": "v1.0.0",
+	"developer": "yourname",
+	"description": "Predicts your player's path and delays clicks that would be too early.",
+	"settings": {
+		"show-trajectory": {
+			"type": "bool",
+			"name": "Show Trajectory",
+			"description": "Draw the predicted path. Grey = no click, green = click now.",
+			"default": true
+		},
+		"autocorrect": {
+			"type": "bool",
+			"name": "Autocorrect Early Clicks",
+			"description": "If clicking right now would kill you but clicking a few ticks later wouldn't, delay the click until the safe tick.",
+			"default": true
+		},
+		"safe-mode": {
+			"type": "bool",
+			"name": "Auto Safe Mode",
+			"description": "When autocorrect is used, stop the level from saving progress or submitting completions until you leave the level.",
+			"default": true
+		},
+		"practice-only": {
+			"type": "bool",
+			"name": "Practice Mode Only",
+			"description": "Only autocorrect in practice mode, so it can't affect normal runs or leaderboard attempts.",
+			"default": true
+		},
+		"predict-ticks": {
+			"type": "int",
+			"name": "Prediction Length (ticks)",
+			"description": "How far ahead to simulate. 240 ticks = 1 second.",
+			"default": 120,
+			"min": 20,
+			"max": 480,
+			"control": { "input": true, "slider": true }
+		},
+		"max-delay": {
+			"type": "int",
+			"name": "Max Correction Delay (ticks)",
+			"description": "Largest delay autocorrect may add to a click. 12 ticks = 50ms.",
+			"default": 12,
+			"min": 1,
+			"max": 60,
+			"control": { "input": true, "slider": true }
+		},
+		"hold-ticks": {
+			"type": "int",
+			"name": "Assumed Hold Length (ticks)",
+			"description": "How long the simulation assumes you hold the click before releasing.",
+			"default": 24,
+			"min": 1,
+			"max": 240,
+			"control": { "input": true, "slider": true }
+		}
+	}
+}
